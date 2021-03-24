@@ -1,14 +1,10 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.*;
 import helpers.TestConfig;
 import helpers.WebDriverConfig;
 import org.aeonbits.owner.ConfigFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -37,7 +33,6 @@ public class SimpleWebTest {
     @Tag("web")
     void googleSearchWorking(){
 
-        //System.out.println(Configuration.remote);
         open("");
         $(byName("q")).setValue(testConfig.getValueSearched()).pressEnter();
         $(byText(testConfig.getValueToCheck())).shouldBe(Condition.visible);
