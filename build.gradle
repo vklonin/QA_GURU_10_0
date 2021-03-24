@@ -64,6 +64,11 @@ tasks.withType(Test) {
     }
 }
 
+test {
+    useJUnitPlatform()
+    systemProperties(System.properties)
+}
+
 task web(type: Test) {
     useJUnitPlatform {
         includeTags 'web'
